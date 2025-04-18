@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoleMate - Home</title>
+
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .product-card img,
+    .product__image {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+
+    .news-grid img,
+    .news-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+
+    .product-card:hover img,
+    .news-item:hover img,
+    .our-products article.product:hover .product__image {
+      transform: scale(1.1);
+    }
+
+    .btn {
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .scroll-down {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-10px);
+      }
+
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: inherit;
+      border: 2px solid currentColor;
+      padding: 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    #back-to-top:hover {
+      transform: scale(1.1);
+    }
+
+
+    @media (max-width: 768px) {
+      .our-products article.product {
+        flex-direction: column;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--       Navbar Section      -->
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'">SoleMate</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero reveal">
+    <div class="hero-content">
+      <h1>Step Into Excellence</h1>
+      <p>Discover premium footwear designed for performance, style, and comfort. Whether you're looking for running
+        sneakers, elegant loafers, or rugged boots, our collection has it all.</p>
+      <a href="products.html" class="btn">Explore Our Collection</a>
+    </div>
+    <div class="scroll-down" onclick="document.querySelector('.featured').scrollIntoView({ behavior: 'smooth' });">
+      ↓
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="featured reveal">
+    <div class="container">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="product-grid">
+        <!-- Product Card 1 -->
+        <div class="product-card">
+          <img src="img/shoe-4.png" alt="Sleek Sneakers" loading="lazy">
+          <h3>Sleek Sneakers</h3>
+          <p>$120</p>
+          <a href="product.html?id=1">View Details</a>
+        </div>
+        <!-- Product Card 2 -->
+        <div class="product-card">
+          <img src="img/shoe-5.png" alt="Classic Loafers" loading="lazy">
+          <h3>Classic Loafers</h3>
+          <p>$150</p>
+          <a href="product.html?id=2">View Details</a>
+        </div>
+        <!-- Product Card 3 -->
+        <div class="product-card">
+          <img src="img/shoe-6.png" alt="Modern Boots" loading="lazy">
+          <h3>Modern Boots</h3>
+          <p>$180</p>
+          <a href="product.html?id=3">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  Our Products Section -->
+  <section class="our-products reveal">
+    <div class="container">
+      <h2 class="section-title">Our Collection</h2>
+
+      <article class="product spacing">
+        <img src="img/shoe-1.png" alt="Men's Running Sneakers" class="product__image" loading="lazy">
+        <div class="product__info">
+          <h3 class="product__title">Men's Running Sneakers</h3>
+          <p class="product__description">Engineered for performance and style, our running sneakers provide superior
+            cushioning and grip to keep you moving forward.</p>
+          <a href="product.html?id=4" class="btn">Buy Now</a>
+        </div>
+      </article>
+
+      <article class="product spacing">
+        <img src="img/shoe-2.png" alt="Women's Stylish Flats" class="product__image" loading="lazy">
+        <div class="product__info">
+          <h3 class="product__title">Women's Stylish Flats</h3>
+          <p class="product__description">Elegant and comfortable, our flats are designed to complement any outfit—from
+            casual daywear to evening events.</p>
+          <a href="product.html?id=5" class="btn">Buy Now</a>
+        </div>
+      </article>
+
+      <article class="product spacing">
+        <img src="img/shoe-3.png" alt="Unisex Outdoor Boots" class="product__image" loading="lazy">
+        <div class="product__info">
+          <h3 class="product__title">Unisex Outdoor Boots</h3>
+          <p class="product__description">Built for rugged terrains and urban adventures alike, our boots offer
+            exceptional durability and a modern design.</p>
+          <a href="product.html?id=6" class="btn">Buy Now</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Latest News & Tips Section -->
+  <section class="news reveal">
+    <div class="container">
+      <h2 class="section-title">Latest News & Tips</h2>
+      <div class="news-grid">
+        <div class="news-item">
+          <img src="img/shoe-12.png" alt="Shoe Care Tips" loading="lazy">
+          <h3>Shoe Care 101</h3>
+          <p>Learn expert techniques to clean and maintain your shoes for lasting durability and style.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="news-item">
+          <img src="img/shoe-11.png" alt="2025 Style Trends" loading="lazy">
+          <h3>2025 Style Trends</h3>
+          <p>Stay ahead of the curve with the latest footwear trends that will dominate the fashion scene.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="news-item">
+          <img src="img/shoe-14.png" alt="Fitness & Footwear" loading="lazy">
+          <h3>Fitness & Footwear</h3>
+          <p>Discover the perfect shoes to enhance your workout performance and keep you motivated.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div class="news-item">
+          <img src="img/shoe-10.png" alt="Choosing Your Perfect Shoe" loading="lazy">
+          <h3>Choosing Your Perfect Shoe</h3>
+          <p>Get expert advice on selecting the ideal shoe that complements your style and lifestyle.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="our-story reveal">
+    <div class="container">
+      <h2 class="section-title">Our Story</h2>
+      <p class="story-text">
+        SoleMate. was founded with a passion to redefine footwear. We believe that every step you take should be
+        empowered by comfort, style, and quality. Since our inception in 2025, we have committed ourselves to crafting
+        shoes that not only look outstanding but also provide lasting comfort and durability. Our blend of innovative
+        design and traditional craftsmanship ensures that our footwear stands the test of time—allowing you to step
+        confidently into every occasion.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Great Shoes Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+ 
+  <button id="back-to-top" onclick="scrollToTop()">&#8593;</button>
+
+  <script>
+    window.addEventListener('scroll', function () {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.background = "rgba(0, 0, 0, 0.95)";
+      } else {
+        header.style.background = "rgba(0, 0, 0, 0.85)";
+      }
+
+      const backToTop = document.getElementById('back-to-top');
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
+</body>
+
+</html>

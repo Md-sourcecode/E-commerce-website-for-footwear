@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products - SoleMate</title>
+  <
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'">SoleMate</div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="index.html">Login</a>
+    </nav>
+  </header>
+  
+  
+  <section class="banner">
+    <div class="banner-content">
+      <h1>Our Products</h1>
+      <p>Browse our exclusive collection of premium footwear.</p>
+    </div>
+  </section>
+  
+ 
+  <section class="products-section">
+    <h2 class="section-title">Products</h2>
+    <div class="products-grid">
+      <!-- Product Card 1 -->
+      <div class="product-card">
+        <img src="img/shoe-1.png" alt="Men's Running Sneakers">
+        <h3>Men's Running Sneakers</h3>
+        <p>$120</p>
+        <a href="product.html?id=1">View Details</a>
+      </div>
+      <!-- Product Card 2 -->
+      <div class="product-card">
+        <img src="img/shoe-2.png" alt="Women's Stylish Flats">
+        <h3>Women's Stylish Flats</h3>
+        <p>$150</p>
+        <a href="product.html?id=2">View Details</a>
+      </div>
+      <!-- Product Card 3 -->
+      <div class="product-card">
+        <img src="img/shoe-3.png" alt="Unisex Outdoor Boots">
+        <h3>Unisex Outdoor Boots</h3>
+        <p>$180</p>
+        <a href="product.html?id=3">View Details</a>
+      </div>
+      <!-- Product Card 4 -->
+      <div class="product-card">
+        <img src="img/shoe-4.png" alt="Sleek Sneakers">
+        <h3>Sleek Sneakers</h3>
+        <p>$120</p>
+        <a href="product.html?id=4">View Details</a>
+      </div>
+      <!-- Product Card 5 -->
+      <div class="product-card">
+        <img src="img/shoe-5.png" alt="Classic Loafers">
+        <h3>Classic Loafers</h3>
+        <p>$150</p>
+        <a href="product.html?id=5">View Details</a>
+      </div>
+      <!-- Product Card 6 -->
+      <div class="product-card">
+        <img src="img/shoe-6.png" alt="Modern Boots">
+        <h3>Modern Boots</h3>
+        <p>$180</p>
+        <a href="product.html?id=6">View Details</a>
+      </div>
+    </div>
+  </section>
+  
+ 
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Great Shoes Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Optional: Change navbar style on scroll for dynamic effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.background = "rgba(0, 0, 0, 0.95)";
+      } else {
+        header.style.background = "rgba(0, 0, 0, 0.85)";
+      }
+    });
+  </script>
+</body>
+</html>

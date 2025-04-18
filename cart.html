@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - SoleMate.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+ 
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'">SoleMate</div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="index.html">Login</a>
+    </nav>
+  </header>
+  
+  <section class="cart-section">
+    <div class="container">
+      <h2 class="cart-title">Your Cart</h2>
+      <div class="cart-grid">
+        <!-- Cart Items Column -->
+        <div class="cart-items">
+          <!-- Cart Item 1 -->
+          <div class="cart-item" data-price="120">
+            <img src="img/shoe-1.png" alt="Men's Running Sneakers">
+            <div class="cart-item-info">
+              <h3>Men's Running Sneakers</h3>
+              <p class="price">$120</p>
+              <p>Quantity: <input type="number" class="quantity" value="1" min="1"></p>
+            </div>
+            <div class="cart-item-actions">
+              <button class="remove-btn">Remove</button>
+            </div>
+          </div>
+          <!-- Cart Item 2 -->
+          <div class="cart-item" data-price="150">
+            <img src="img/shoe-2.png" alt="Women's Stylish Flats">
+            <div class="cart-item-info">
+              <h3>Women's Stylish Flats</h3>
+              <p class="price">$150</p>
+              <p>Quantity: <input type="number" class="quantity" value="1" min="1"></p>
+            </div>
+            <div class="cart-item-actions">
+              <button class="remove-btn">Remove</button>
+            </div>
+          </div>
+          <!-- Cart Item 3 -->
+          <div class="cart-item" data-price="180">
+            <img src="img/shoe-3.png" alt="Unisex Outdoor Boots">
+            <div class="cart-item-info">
+              <h3>Unisex Outdoor Boots</h3>
+              <p class="price">$180</p>
+              <p>Quantity: <input type="number" class="quantity" value="1" min="1"></p>
+            </div>
+            <div class="cart-item-actions">
+              <button class="remove-btn">Remove</button>
+            </div>
+          </div>
+        </div>
+        <!-- Cart Summary Column -->
+        <div class="cart-summary">
+          <div class="summary-item">
+            <span>Subtotal:</span>
+            <span id="subtotal">$0.00</span>
+          </div>
+          <div class="summary-item">
+            <span>Tax (5%):</span>
+            <span id="tax">$0.00</span>
+          </div>
+          <div class="summary-item total">
+            <span>Total:</span>
+            <span id="total">$0.00</span>
+          </div>
+          <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Great Shoes Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <script>
+    
+    function updateCartTotal() {
+      const cartItems = document.querySelectorAll('.cart-item');
+      let subtotal = 0;
+      cartItems.forEach(item => {
+        const price = parseFloat(item.getAttribute('data-price'));
+        const quantity = parseInt(item.querySelector('.quantity').value);
+        subtotal += price * quantity;
+      
+        const priceDisplay = item.querySelector('.price');
+        priceDisplay.textContent = `$${price.toFixed(2)}`;
+      });
+      const tax = subtotal * 0.05; // 5% tax
+      const total = subtotal + tax;
+      document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+      document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+    }
+    
+
+    document.querySelectorAll('.quantity').forEach(input => {
+      input.addEventListener('change', updateCartTotal);
+      input.addEventListener('input', updateCartTotal);
+    });
+    
+
+    updateCartTotal();
+   
+    document.querySelectorAll('.remove-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        if (confirm("Are you sure you want to remove this item?")) {
+          button.closest('.cart-item').remove();
+          updateCartTotal();
+          alert("Item removed from cart.");
+        }
+      });
+    });
+    
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.background = "rgba(0, 0, 0, 0.95)";
+      } else {
+        header.style.background = "rgba(0, 0, 0, 0.85)";
+      }
+    });
+  </script>
+</body>
+</html>
